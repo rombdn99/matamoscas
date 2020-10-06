@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Prueba de autenticacion firebase para google (sdk de Javascript)</title>
+  <style>
+    #datosuser{
+      font-size: .8em;
+    }
+  </style>
+</head>
+<body>
+  <button id="botonlogin">Haz login con Google</button>  
+  <button id="botonlogout">Haz logout</button>  
+  <p id="datosuser"></p>
+  <img src="https://lh6.googleusercontent.com/-1INwxtSjF8M/AAAAAAAAAAI/AAAAAAAAAAA/ACHi3rfU9i1_tmtg2XSeEfXxVj5G9wKOoQ/photo.jpg" alt="">
+<script src="https://www.gstatic.com/firebasejs/3.5.2/firebase.js"></script>
+<script>
+  // inicializar Firebase
+  var config = {
+    apiKey: "AIzaSyCjLBPt2rY-7yZk4dlUO4bJRC-1goQaKMo",
+    authDomain: "matarmosca.firebaseapp.com",
+    databaseURL: "https://matarmosca.firebaseio.com",
+    projectId: "matarmosca",
+    storageBucket: "matarmosca.appspot.com",
+    messagingSenderId: "418339699533",
+    appId: "1:418339699533:web:d8b45959d72129a633d504",
+    measurementId: "G-DFGV3C7N9D"
+  };
+  firebase.initializeApp(config);
+</script>
+
+
+<script>
+// accedo al servicio de autenticación
+var authService = firebase.auth();
+
+
+// manejador de eventos para loguearse
+document.getElementById('botonlogin').addEventListener('click', function() {
+  var provider = new firebase.auth.GoogleAuthProvider();
+  provider.addScope('email');
+  authService.signInWithPopup(provider)
+        .then(function(result) {
+            // logueado con éxito
+            console.log('Hemos autenticado al usuario ', result.user);
+        })
+        .catch(function(error) {
+            // Fallo de login
+            console.log('Se ha encontrado un error:', error);
+        });
+})
+
+
+//manejador de eventos para cerrar sesión (logout)
+document.getElementById('botonlogout').addEventListener('click', function() {
+  authService.signOut()
+})
+
+
+// manejador de eventos para los cambios del estado de autenticación
+authService.onAuthStateChanged(function(user) {
+  if (user) {
+    console.log('AuthStateChanged', user)
+    document.getElementById('datosuser').innerHTML = JSON.stringify(user);
+    document.getElementById('botonlogin').style.display = 'none';
+    document.getElementById('botonlogout').style.display = 'block';
+    console.log(JSON.stringify(user));
+  } else {
+    document.getElementById('datosuser').innerHTML = 'Sin usuario logueado...'
+    document.getElementById('botonlogin').style.display = 'block';
+    document.getElementById('botonlogout').style.display = 'none';
+  }
+});
+
+</script>
+
+
+</body>
+</html>

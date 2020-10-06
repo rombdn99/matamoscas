@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+  	<div class="col-12 d-flex justify-content-between mb-3">
+  		<div class="">
+	  		<button id="botonlogin">Haz login con Google</button>  
+	  		<button id="botonlogout">Haz logout</button>
+	  		<button id="logoutmasivo">Logout de los dos jugadores</button>
+  		</div>
+  		<div>
+  			<div id="usuario1" class="d-flex">Usuario 1: 
+  				<div id="usuario1img" style="background-image: url(usuario.png);height: 50px;width: 50px;background-size: contain;background-repeat: no-repeat;"></div>
+  				<div id="puntuacionj1">
+  				</div>
+  			</div>
+  			<div id="usuario2" class="d-flex">Usuario 2:
+  				<div id="usuario2img" style="background-image: url(usuario.png);height: 50px;width: 50px;background-size: contain;background-repeat: no-repeat;">
+  				</div>
+  				<div id="puntuacionj2">
+  				</div>
+  			</div>
+  		</div>
+  		
+  	</div>
+    <div class="col-12 d-flex justify-content-between mb-3">
+	    	<div class="col-3" id="tiempo" style="height: 50px; border: 1px solid black; ">60</div>
+	    	<div class="col-3" id="puntuacion" style="height: 50px; border: 1px solid black; "></div>
+	    	<button type="button" class="btn btn-primary btn-lg" id="empezar">Empezar</button>
+	    	<button type="button" class="btn btn-danger btn-lg" id="acabar">Acabar partida</button>
+    </div>
+	<div class="container-fluid col-12 p-0 overflow-hidden" id="selva" style="background-image: url('selva.jpg'); height: 500px; background-repeat: no-repeat; background-size: 100% 100%;">
+		<div class="col-12 " id="fin" style="text-align: center;color: chartreuse; font-size: 120px; display: none">Fin de partida</div>
+		<div class="col-12 " id="fin2" style="text-align: center;color: chartreuse; font-size: 40px; display: none"></div>
+		<img src="camaleon.svg" alt="" class="position-absolute col-2 p-0" style="top: 59%;
+    right: 0%;">
+		
+		 
+		
+		<img src="mosca.svg" id="mosca" alt="" class="position-absolute col-1 p-0" style="left: 50%;top: 50%">
+		<svg viewBox="0 0 377.08624 377.08621" xmlns="http://www.w3.org/2000/svg" id="puntero" class="p-0 position-absolute col-1" style="left: 500px;top: 500px">
+		 <g transform="translate(-85.743 -163.82)" fill="none" stroke="black">
+		  <path transform="matrix(.72239 0 0 .72239 274.29 352.36)" d="m250 0a250 250 0 1 1 -500 0 250 250 0 1 1 500 0z" stroke-linecap="square" stroke-linejoin="round" stroke-width="22"/>
+		  <path d="m93.689 352.36h361.19" stroke-width="9.391"/>
+		  <path d="m96.578 352.36h32.281" stroke-width="21.672"/>
+		  <path d="m419.71 352.36h32.281" stroke-width="21.672"/>
+		  <path d="m151.34 363.2v-21.672" stroke-width="9.391"/>
+		  <path d="m192.32 363.2v-21.672" stroke-width="9.391"/>
+		  <path d="m233.3 363.2v-21.672" stroke-width="9.391"/>
+		  <path d="m315.27 363.2v-21.672" stroke-width="9.391"/>
+		  <path d="m356.25 363.2v-21.672" stroke-width="9.391"/>
+		  <path d="m397.23 363.2v-21.672" stroke-width="9.391"/>
+		  <path d="m274.29 363.2v-21.672" stroke-width="9.391"/>
+		  <path d="m274.29 171.77v361.19" stroke-width="9.391"/>
+		  <path d="m274.29 174.65v32.281" stroke-width="21.672"/>
+		  <path d="m274.29 497.79v32.281" stroke-width="21.672"/>
+		  <path d="m263.45 229.41h21.672" stroke-width="9.391"/>
+		  <path d="m263.45 270.4h21.672" stroke-width="9.391"/>
+		  <path d="m263.45 311.38h21.672" stroke-width="9.391"/>
+		  <path d="m263.45 393.35h21.672" stroke-width="9.391"/>
+		  <path d="m263.45 434.33h21.672" stroke-width="9.391"/>
+		  <path d="m263.45 475.31h21.672" stroke-width="9.391"/>
+		  <path d="m263.45 352.36h21.672" stroke-width="9.391"/>
+		 </g>
+		</svg>
+		<svg viewBox="0 0 377.08624 377.08621" xmlns="http://www.w3.org/2000/svg" id="puntero2" class="p-0 position-absolute col-1" style="left: 500px;top: 500px">
+		 <g transform="translate(-85.743 -163.82)" fill="none" stroke="white">
+		  <path transform="matrix(.72239 0 0 .72239 274.29 352.36)" d="m250 0a250 250 0 1 1 -500 0 250 250 0 1 1 500 0z" stroke-linecap="square" stroke-linejoin="round" stroke-width="22"/>
+		  <path d="m93.689 352.36h361.19" stroke-width="9.391"/>
+		  <path d="m96.578 352.36h32.281" stroke-width="21.672"/>
+		  <path d="m419.71 352.36h32.281" stroke-width="21.672"/>
+		  <path d="m151.34 363.2v-21.672" stroke-width="9.391"/>
+		  <path d="m192.32 363.2v-21.672" stroke-width="9.391"/>
+		  <path d="m233.3 363.2v-21.672" stroke-width="9.391"/>
+		  <path d="m315.27 363.2v-21.672" stroke-width="9.391"/>
+		  <path d="m356.25 363.2v-21.672" stroke-width="9.391"/>
+		  <path d="m397.23 363.2v-21.672" stroke-width="9.391"/>
+		  <path d="m274.29 363.2v-21.672" stroke-width="9.391"/>
+		  <path d="m274.29 171.77v361.19" stroke-width="9.391"/>
+		  <path d="m274.29 174.65v32.281" stroke-width="21.672"/>
+		  <path d="m274.29 497.79v32.281" stroke-width="21.672"/>
+		  <path d="m263.45 229.41h21.672" stroke-width="9.391"/>
+		  <path d="m263.45 270.4h21.672" stroke-width="9.391"/>
+		  <path d="m263.45 311.38h21.672" stroke-width="9.391"/>
+		  <path d="m263.45 393.35h21.672" stroke-width="9.391"/>
+		  <path d="m263.45 434.33h21.672" stroke-width="9.391"/>
+		  <path d="m263.45 475.31h21.672" stroke-width="9.391"/>
+		  <path d="m263.45 352.36h21.672" stroke-width="9.391"/>
+		 </g>
+		</svg>
+	</div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.7.0/firebase.js"></script>
+<script>
+  var firebaseConfig = {
+    apiKey: "AIzaSyCjLBPt2rY-7yZk4dlUO4bJRC-1goQaKMo",
+    authDomain: "matarmosca.firebaseapp.com",
+    databaseURL: "https://matarmosca.firebaseio.com",
+    projectId: "matarmosca",
+    storageBucket: "matarmosca.appspot.com",
+    messagingSenderId: "418339699533",
+    appId: "1:418339699533:web:d8b45959d72129a633d504",
+    measurementId: "G-DFGV3C7N9D"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+<!-- <script src="logingoogle.js"></script> -->
+    <script src="matamoscasfirebase.js"></script>
+
+
+  </body>
+</html>
